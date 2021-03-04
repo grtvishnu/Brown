@@ -1,18 +1,17 @@
 import 'package:airweather/services/auth.dart';
 import 'package:flutter/material.dart';
 
-class SignIn extends StatefulWidget {
+class Register extends StatefulWidget {
   @override
-  _SignInState createState() => _SignInState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _SignInState extends State<SignIn> {
+class _RegisterState extends State<Register> {
 
   final AuthService _auth = AuthService();
-
-  //text field state
   String email= '';
   String password= '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,9 +19,9 @@ class _SignInState extends State<SignIn> {
       appBar: AppBar(
         backgroundColor: Colors.brown[400],
         elevation: 0.0,
-        title: Text("Sign in to Brew Crew"),
+        title: Text("Sign up to Brew Crew"),
         actions: [
-          FlatButton.icon(onPressed: (){}, icon: Icon(Icons.person), label: Text("Register"))
+          FlatButton.icon(onPressed: (){}, icon: Icon(Icons.person), label: Text("Sign In"))
         ],
       ),
       body: Container(
@@ -38,21 +37,21 @@ class _SignInState extends State<SignIn> {
                 },
               ),
               SizedBox(height: 20),
-            TextFormField(
-              obscureText: true,
-              onChanged: (val){
-                setState(() => password = val);
+              TextFormField(
+                obscureText: true,
+                onChanged: (val){
+                  setState(() => password = val);
 
-              },
-            ),
+                },
+              ),
               SizedBox(height: 20),
               RaisedButton(onPressed: () async {
                 print(email);
                 print(password);
               },
-              color: Colors.pink[400],
+                color: Colors.pink[400],
                 child: Text(
-                  "Sign In",
+                  "Sign Up",
                   style: TextStyle(color: Colors.white),
                 ),
               )

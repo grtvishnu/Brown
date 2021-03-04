@@ -1,5 +1,6 @@
 import 'package:airweather/screens/authenticate/sign_in.dart';
 import 'package:flutter/material.dart';
+import 'package:airweather/screens/authenticate/register.dart';
 
 class Authenticate extends StatefulWidget {
   @override
@@ -7,10 +8,17 @@ class Authenticate extends StatefulWidget {
 }
 
 class _AuthenticateState extends State<Authenticate> {
+
+  bool showSignIn = true;
+  void toggleView(){
+    setState(()=> showSignIn = !showSignIn);
+  }
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: SignIn(),
-    );
+    if(showSignIn){
+      return SignIn();
+    }else{
+      return Register();
+    }
   }
 }
